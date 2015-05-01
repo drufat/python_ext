@@ -16,11 +16,11 @@ before_install:
 
 install:
     - g++ -shared -fPIC rectangle.cpp -o rectangle_cffi.so
-    - ls
     - python setup.py build_ext --inplace
 
 script:
-    - PYTHONPATH=. py.test test_all.py
+    - export RECTANGLE_CFFI=`readlink -f rectangle_cffi.so`
+    - py.test test_all.py
 
 notifications:
     email: false

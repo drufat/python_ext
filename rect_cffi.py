@@ -12,7 +12,8 @@ ffi.cdef('''
     void rect_move(CRectangle r, int dx, int dy);
 ''')
 
-C = ffi.dlopen('rectangle_cffi.so')
+import os
+C = ffi.dlopen(os.environ['RECTANGLE_CFFI'])
 
 class Rectangle:
     
