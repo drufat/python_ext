@@ -16,10 +16,11 @@ before_install:
 
 install:
     - g++ -shared -fPIC rectangle.cpp -o rectangle_cffi.so
+    - ls
     - python setup.py build_ext --inplace
 
 script:
-    - py.test test_all.py
+    - PYTHONPATH=. py.test test_all.py
 
 notifications:
     email: false
