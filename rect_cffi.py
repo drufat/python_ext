@@ -2,8 +2,23 @@ import os
 from cffi import FFI
 ffi = FFI()
 
-with open(os.environ['RECTANGLE_H'], 'r') as f:
-    ffi.cdef(f.read())
+# Can't do this because directives aren't supported yet.
+#with open(os.environ['RECTANGLE_H'], 'r') as f:
+#    ffi.cdef(f.read())
+
+ffi.cdef('''
+
+    typedef void* CRectangle;
+    
+    CRectangle rect_new(int x0, int y0, int x1, int y1);
+    void rect_del(CRectangle r);
+    int rect_getLength(CRectangle r);
+    int rect_getHeight(CRectangle r);
+    int rect_getArea(CRectangle r);
+    void rect_move(CRectangle r, int dx, int dy);
+
+''')
+
 C = ffi.dlopen(os.environ['RECTANGLE_CFFI_SO'])
 
 class Rectangle:
