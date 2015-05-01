@@ -3,7 +3,7 @@ from cffi import FFI
 ffi = FFI()
 
 with open(os.environ['RECTANGLE_H'], 'r') as f:
-    ffi.cdef(f.readall())
+    ffi.cdef(f.read())
 C = ffi.dlopen(os.environ['RECTANGLE_CFFI_SO'])
 
 class Rectangle:
