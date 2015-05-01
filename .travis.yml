@@ -1,0 +1,22 @@
+language: python
+
+os:
+    - linux
+    - osx
+
+python:
+    - "2.6"
+    - "2.7"
+    - "3.2"
+    - "3.3"
+    - "3.4"
+
+install:
+    - pip install Cython
+
+script:
+    - python setup.py build_ext --inplace
+    - py.test test_all.py
+
+notifications:
+    email: false
