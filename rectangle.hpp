@@ -1,3 +1,6 @@
+#ifndef RECTANGLE_HPP
+#define RECTANGLE_HPP
+
 namespace shapes {
 
     class Rectangle {
@@ -12,3 +15,5 @@ namespace shapes {
         void move(int dx, int dy);
     };
 }
+
+#endif

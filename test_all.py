@@ -1,16 +1,19 @@
 def test_rectangle():    
+    
+    import rect_cython, rect_cffi
 
-    from rect import Rectangle
+    for Rectangle in (rect_cython.Rectangle, 
+                      rect_cffi.Rectangle):
 
-    r = Rectangle(0, 0, 2, 3)
-    assert r.getLength() == 2
-    assert r.getHeight() == 3
-    assert r.getArea() == 6
-    r.move(3, 4)
+        r = Rectangle(0, 0, 2, 3)
+        assert r.getLength() == 2
+        assert r.getHeight() == 3
+        assert r.getArea() == 6
+        r.move(3, 4)
 
 def test_queue():
     
-    from queue import Queue
+    from queue_cython import Queue
     q = Queue()
     assert q.isempty()
     q.append(5)

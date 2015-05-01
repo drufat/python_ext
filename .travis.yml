@@ -11,11 +11,13 @@ python:
     - "3.3"
     - "3.4"
 
-install:
+before_install:
     - pip install Cython
 
-script:
+install:
     - python setup.py build_ext --inplace
+
+script:
     - py.test test_all.py
 
 notifications:

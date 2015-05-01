@@ -1,4 +1,5 @@
 #include "rectangle.hpp"
+#include "rectangle.h"
 
 using namespace shapes;
 
@@ -37,3 +38,33 @@ void Rectangle::move(int dx, int dy)
     y1 += dy;
 }
 
+
+// C wrapper around the above C++ class
+
+CRectangle rect_new(int x0, int y0, int x1, int y1){
+    return reinterpret_cast<CRectangle>(new Rectangle(x0, y0, x1, y1));
+}
+
+void rect_del(CRectangle r){
+    delete reinterpret_cast<Rectangle*>(r);
+}
+
+int rect_getLength(CRectangle r)
+{
+    return reinterpret_cast<Rectangle*>(r)->getLength();
+}
+
+int rect_getHeight(CRectangle r)
+{
+    return reinterpret_cast<Rectangle*>(r)->getHeight();
+}
+
+int rect_getArea(CRectangle r)
+{
+    return reinterpret_cast<Rectangle*>(r)->getArea();
+}
+
+void rect_move(CRectangle r, int dx, int dy)
+{
+    reinterpret_cast<Rectangle*>(r)->move(dx, dy);
+}
