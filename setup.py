@@ -13,14 +13,7 @@ cython_extensions = [
               language='c++'),
 ]
 
-cffi_extensions = [
-    Extension('rect_cffi_dl',
-              sources=['rectangle.cpp'],
-              language='c++'),
-]
-
 setup(
     name = 'foo', 
-    ext_modules = (cythonize(cython_extensions) + 
-                   cffi_extensions)
+    ext_modules = cythonize(cython_extensions)
 )

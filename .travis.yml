@@ -15,6 +15,7 @@ before_install:
     - pip install cython cffi
 
 install:
+    - g++ -shared -fPIC rectangle.cpp -o rectangle_cffi.so
     - python setup.py build_ext --inplace
 
 script:

@@ -12,10 +12,7 @@ ffi.cdef('''
     void rect_move(CRectangle r, int dx, int dy);
 ''')
 
-import glob
-dl = glob.glob('rect_cffi_dl.*.so')[0]
-
-C = ffi.dlopen(dl)
+C = ffi.dlopen('rectangle_cffi.so')
 
 class Rectangle:
     
