@@ -1,8 +1,9 @@
 def test_rectangle():    
     
-    import rect_cython, rect_cffi
+    import rect_cython, rect_cpp, rect_cffi
 
     for Rectangle in (rect_cython.Rectangle, 
+                      rect_cpp.Rectangle,
                       rect_cffi.Rectangle):
 
         r = Rectangle(0, 0, 2, 3)
