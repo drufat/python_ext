@@ -20,7 +20,6 @@ extensions = [
     Extension('rect_cpp',
               sources=['rect_cpp.cpp', 'rectangle.cpp'],
               language='c++',
-              extra_compile_args=['-std=c++11']
               ),
 ]
 
