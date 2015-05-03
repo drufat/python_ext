@@ -19,7 +19,7 @@ Rectangle_new(PyTypeObject* type, PyObject *args, PyObject *kwds)
     int x0, y0, x1, y1;
     if (!PyArg_ParseTuple(args, "iiii", &x0, &y0, &x1, &y1))
         return NULL;
-    auto self = (RectangleObject*) type->tp_alloc(type, 0);
+    RectangleObject* self = (RectangleObject*) type->tp_alloc(type, 0);
     if(self!=NULL){
         self->rect = new shapes::Rectangle(x0, y0, x1, y1);
     }
